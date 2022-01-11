@@ -86,7 +86,7 @@ async def on_message(message):
                                 output_string += line
                             await message.channel.send('```{}```'.format(output_string))
                     except Exception as e:
-                        await message.channel.send('```Damn either you or one of the quants made a mistake with this tool...\n This is the error: {}```'.format(e))
+                        await message.channel.send('```Unexpected error (non-fatal): {}```'.format(e))
                 else:
                     await message.channel.send('```Program not in directory.```')
             else: 
