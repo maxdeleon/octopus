@@ -1,0 +1,1 @@
+!volE ticker,days volElasticity.py help.txt STRICT

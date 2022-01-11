@@ -1,0 +1,16 @@
+To Call:
+	!volE ticker dayrange
+Parameters:
+	ticker symbol — ex. USO
+	dayrange from now — ex. 250
+
+Displays:
+	Realized Volatility
+	Volatilistic Elasticity of Returns.
+
+Volatilistic Elasticity of Returns = %ΔP/%ΔV
+	“percent change in price over the percent change in volatility”
+	Means: to what extent a change in volatility affects a change in price
+	Use: helps to adjust limits for massive volatility changes or gapping
+
+Plugin Contact: siddharthm@vt.edu

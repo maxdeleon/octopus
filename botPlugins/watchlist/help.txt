@@ -1,0 +1,26 @@
+~ Watchlist ~ (DRAFT)
+
+This plugin allows for analysts to recieve information about watchlists of interest.
+
+Available Commands:
+----------------------------
+
+list:
+Returns a list the watchlists that are currently saved in the watchlist directory.
+
+view: 
+Returns list the asset tickers in an existing watchlist.
+
+summary:
+Returns a summary of the user specified watchlist in a text format.
+
+chart:
+Returns a percent change chart of the user specified watchlist.
+
+cMatrix:
+Returns a heat map correlation matrix for a user defined watchlist.
+
+----------------------------
+plugin contact: maxdeleon@vt.edu
+
+TODO: add example usages for each parameter

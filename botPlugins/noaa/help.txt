@@ -1,0 +1,10 @@
+To Call:
+	!noaa chartType
+Parameters:
+	chartType - forecast: returns an 8-18 day forecast scraped from the NOAA
+              - current: returns current images scraped from the NOAA
+
+Displays:
+	NOAA charts
+
+Plugin Contact: maxdeleon@vt.edu

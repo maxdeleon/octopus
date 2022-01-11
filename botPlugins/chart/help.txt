@@ -1,0 +1,13 @@
+To Call:
+	!chart ticker dayrange volume
+Parameters:
+	ticker symbol — ex. USO
+	dayrange from now — ex. 250
+	volume option - ex. True or False
+
+Displays:
+	OHLC candlestick chart
+
+OHCLV: Open, High, Low, Close
+
+Plugin Contact: maxdeleon@vt.edu
