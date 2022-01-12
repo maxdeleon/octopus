@@ -103,7 +103,7 @@ async def on_message(message):
                 send_string += item
             await message.channel.send('```{}```'.format(send_string))
 
-        elif content[0] == '!SYSUPDATE' and str(message.author) in BOT_OPERATORS:
+        elif content[0] == 'SYSUPDATE' and str(message.author) in BOT_OPERATORS:
             out = os.popen('git status -uno').readlines()
             if 'On branch master' in out:
                 if update_guard == True:
