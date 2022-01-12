@@ -40,4 +40,3 @@ def bollinger(data, period, band_width = 2):
 INDICATORS = {'ewma':ewma,
             'rsi':rsi,
             'bollinger':bollinger}
-

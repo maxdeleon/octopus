@@ -85,13 +85,18 @@ if __name__ == '__main__':
             df[indicator] = computeIndicator(df['Close'],
                                                 INDICATORS[indicator],
                                                 indicator_range)
-            
 
         else:
             df = pullData(ticker,int(parameters[1]),custom_range=False)
-    
-        print('type=FILE')
-        print(image_file)
+            df[indicator] = computeIndicator(df['Close'],
+                                                INDICATORS[indicator],
+                                                indicator_range)
+            x = df.index
+            y = df[indicator]
+
+
+        #print('type=FILE')
+        #print(image_file)
     else:
         print('type=TEXT')
         print('Indicator not found!')

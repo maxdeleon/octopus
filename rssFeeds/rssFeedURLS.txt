@@ -3,3 +3,4 @@ SP Global Platts Agriculture,https://www.spglobal.com/platts/en/rss-feed/agricul
 CNBC Economy News,https://www.cnbc.com/id/20910258/device/rss/rss.html
 CNBC World News,https://www.cnbc.com/id/100727362/device/rss/rss.html
 Barchart News,https://www.barchart.com/news/authors/rss
+EIA Today in Energy,https://www.eia.gov/rss/
