@@ -108,6 +108,7 @@ async def on_message(message):
             out_string=''
             for item in out:
                 out_string += item
+            print(out_string)
             if 'On branch master' in out_string:
                 if update_guard == True:
                     await message.channel.send('```WARNING\nPerforming updating the code while the system is operating may result in the system/machine being disabled or malicious code to be executed. If you have ensured the integrity of the update re-send !SYSUPDATE within the next 30 seconds```') 
