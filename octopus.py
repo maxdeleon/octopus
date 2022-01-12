@@ -104,7 +104,7 @@ async def on_message(message):
             await message.channel.send('```{}```'.format(send_string))
 
         elif content[0] == '!SYSUPDATE' and str(message.author) in BOT_OPERATORS:
-            out = os.popen('git status -uno')
+            out = os.popen('git status -uno').readlines()
             if 'On branch master' in out:
                 if update_guard == True:
                     await message.channel.send('```WARNING\nPerforming updating the code while the system is operating may result in the system/machine being disabled or malicious code to be executed. If you have ensured the integrity of the update re-send !SYSUPDATE within the next 30 seconds```') 
