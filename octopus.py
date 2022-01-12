@@ -13,6 +13,7 @@ from KEYS import *
 
 command_file = 'commands.txt'
 client = discord.Client()
+update_guard = True
 
 @client.event
 async def on_ready():
@@ -22,6 +23,7 @@ async def on_ready():
 # async method to handle commands passed in by the user
 @client.event
 async def on_message(message):
+    global update_guard
     if message.author == client.user:
         pass
 
@@ -93,8 +95,43 @@ async def on_message(message):
                 await message.channel.send('```Number of given parameters do not match required amount.```')
         elif content[0] == 'ping':
             await message.channel.send('```pong```')
+        # this will only work if the code is in a git repository!!!!!!
+        elif content[0] == 'SYSSTAT' and str(message.author) in BOT_OPERATORS:
+            out = os.popen('git status -uno').readlines()
+            send_string = ''
+            for item in out:
+                send_string += item
+            await message.channel.send('```{}```'.format(send_string))
+
+        elif content[0] == '!SYSUPDATE' and str(message.author) in BOT_OPERATORS:
+            out = os.popen('git status -uno')
+            if 'On branch master' in out:
+                if update_guard == True:
+                    await message.channel.send('```WARNING\nPerforming updating the code while the system is operating may result in the system/machine being disabled or malicious code to be executed. If you have ensured the integrity of the update re-send !SYSUPDATE within the next 30 seconds```') 
+                    await message.channel.send('```UPDATE GUARD: DISABLED```')
+                    update_guard = False
+                else:
+                    await message.channel.send('```ALERT\n{} initiated update```'.format(message.author))
+                    out = os.popen('git pull').readlines()
+                    send_string=''
+                    for item in out:
+                        send_string += item
+                    await message.channel.send('```{}\nOctopus successfully updated!```'.format(send_string))
+                    update_guard = True
+            else:
+                await message.channel.send('```WARNING: Unable to perform update process. Must be on master!```'.format(out))
+
         else:
             await message.channel.send('```Unkown command. Type !help to see commands```')
+
+
+@tasks.loop(minutes=0.5)
+async def updateGuard():
+    global update_guard
+    if update_guard == False:
+        update_guard = True
+    else: pass
+
 
 # method to parse plugins and link user input to programs
 @tasks.loop(minutes=RSS_UPDATE_FREQUENCY)
@@ -110,6 +147,7 @@ async def rssFeed():
             pass
     else:
         pass
+
 def parseCommands():
     commands = {}
     cwd = os.getcwd()
