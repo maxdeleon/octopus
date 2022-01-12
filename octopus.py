@@ -124,7 +124,6 @@ async def on_message(message):
         else:
             await message.channel.send('```Unkown command. Type !help to see commands```')
 
-
 @tasks.loop(minutes=0.5)
 async def updateGuard():
     global update_guard
