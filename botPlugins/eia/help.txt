@@ -1,0 +1,4 @@
+This is an increddibly important plugin use it wisely.
+
+USAGE:
+!cat
