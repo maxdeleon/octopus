@@ -293,14 +293,6 @@ def main(argument_list):
         print('Watchlist: Bad number of parameters for function call')
 
 
-'''
-
-
-elif action == 'create' and len(argument_list) == 3:
-    print('type=TEXT')
-    print('{}'.format(createWatchlist(argument_list[1],argument_list[2])))
-'''
-
 
 if __name__ == '__main__':
     parameters = sys.argv

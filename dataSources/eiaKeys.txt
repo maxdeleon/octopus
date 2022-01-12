@@ -1,0 +1,15 @@
+ng_henry_hub_price:NG.RNGWHHD.M
+ng_liquid_production:NG.N9060US2.M
+ng_dry_production:NG.N9070US2.M
+ng_electric_power:NG.N3045US2.M
+ng_vehicle_fuel:NG.N3025US2.M
+ng_industrial_use:NG.N3035US2.M
+ng_commercial_use:NG.N3020US2.M
+ng_residential_use:NG.N3010US2.M
+ng_lease_and_plant_fuel:NG.N9160US2.M
+ng_pipeline_and_distribution:NG.N9170US2.M
+ng_exports:NG.N9130US2.M
+ng_imports:NG.N9100US2.M
+ng_storage_withdraws:TOTAL.NGNWPUS.M
+ng_heating_degree_days:TOTAL.ZWHDPUS.M
+ng_cooling_degree_days:TOTAL.ZWCDPUS.M

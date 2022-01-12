@@ -1,4 +1,8 @@
-This is an increddibly important plugin use it wisely.
+EIA Data plugin
 
 USAGE:
-!cat
+!eia API-browser-keys format
+
+!eia a,b,c,d,e chart
+
+format: chart, csv

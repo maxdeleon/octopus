@@ -1,1 +1,1 @@
-!cat dummy_param important.py help.txt CHILL
+!eia action eiaPlugin.py help.txt CHILL
