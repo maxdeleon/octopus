@@ -1,0 +1,4 @@
+This plugin pulls data from the FRED and generates a yield curve and a table graphic
+
+USAGE:
+!yc

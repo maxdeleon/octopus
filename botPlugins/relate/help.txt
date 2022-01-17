@@ -3,7 +3,7 @@ To Call:
 Parameters:
 	ticker1 symbol — ex. USO
     ticker2 symbol — ex. UGA
-	dayrange from now — ex. 250
+	dayrange from now — ex. 250 (defaults to 100)
 
 Displays:
 	Scatter plot of returns for two assets against one another and then also plots a least squares fit.

@@ -65,11 +65,14 @@ if __name__ == '__main__':
     parameters.pop(0)
     ticker1 = parameters[0]
     ticker2 = parameters[1]
-    if 'dateRange' in parameters[2]:
-        dates=parameters[1].split('|')
-        image_file = analyzeReturns(ticker1,ticker2,dates,custom_range=True)
+    if len(parameters) > 3:
+        if 'dateRange' in parameters[2]:
+            dates=parameters[1].split('|')
+            image_file = analyzeReturns(ticker1,ticker2,dates,custom_range=True)
+        else:
+            image_file = analyzeReturns(ticker1,ticker2,int(parameters[2]),custom_range=False)
     else:
-        image_file = analyzeReturns(ticker1,ticker2,int(parameters[2]),custom_range=False)
+            image_file = analyzeReturns(ticker1,ticker2,100,custom_range=False)
 
     print('type=FILE')
     print(image_file)

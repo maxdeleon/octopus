@@ -45,7 +45,6 @@ def sortList(sub_li,index):
     sub_li.sort(key = lambda x: x[index])
     return sub_li
 
-
 # fetches the news feeds
 def fetch():
     DEBUG = False

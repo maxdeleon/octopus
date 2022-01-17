@@ -27,10 +27,10 @@ async def on_message(message):
     if message.author == client.user:
         pass
 
-    if message.content.startswith('!'): # checks if the message starts with an app header
+    if message.content.startswith('>'): # checks if the message starts with an app header
         command_dict = parseCommands()#parseCommands(commandFile=command_file)
         command_list = command_dict.keys()
-        content = message.content.strip('!')
+        content = message.content.strip('>')
         content = content.split(' ')
         print(message.author,content)
 
@@ -176,8 +176,8 @@ def parseCommands():
                     parameters = line[1].split(',') if line[1] != 'null' else ''
                     path = line[2]
                     help_file = line[3]
-                    strict = False if 'STRICT' not in line[4] else True
-
+                    strict = True if 'STRICT' in line[4] else False
+                    
                     commands[command] = {'parameters':parameters,
                                          'path':'./'+plugin_folder + '/'+item+ '/'+path,
                                          'helpPath':'./'+plugin_folder + '/'+item+ '/'+help_file,

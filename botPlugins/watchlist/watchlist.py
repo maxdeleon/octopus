@@ -91,13 +91,13 @@ def chartWatchlist(watchlist_file,day_range):
     for t in tickers:
         data[t] = web.DataReader(t,'yahoo', start, end).Close
         #asset_close = data[t].Close.values
-    data = ((1 + data.pct_change()).cumprod() - 1)*100
+    #data = ((1 + data.pct_change()).cumprod() - 1)*100
 
     file_name = 'images/watchlistplot.png'
     delta = end.date() - start.date()
     ax = data.plot()
-    ax.set_title('{} watchlist {} Day Cumulative Change'.format(watchlist_file, delta.days))
-    ax.set_ylabel('Percent Change (%)')
+    ax.set_title('{} watchlist {} Day Plot'.format(watchlist_file, delta.days))
+    ax.set_ylabel('Close Price')
     plt.tight_layout()
     plt.grid()
     fig = ax.get_figure()
@@ -259,15 +259,29 @@ def main(argument_list):
         print(watchlist_string)
     
     # return a percent chagne chart
-    elif action == 'chart' and len(argument_list) == 3:
-        print('type=FILE')
-        print('{}'.format(chartWatchlist(argument_list[1],argument_list[2])))
+    elif action == 'chart':
+        if len(argument_list) == 3:
+            print('type=FILE')
+            print('{}'.format(chartWatchlist(argument_list[1],argument_list[2])))
+        elif len(argument_list) == 2:
+            print('type=FILE')
+            print('{}'.format(chartWatchlist(argument_list[1],100)))
+        else:
+            print('type=TEXT')
+            print('Bad parameters')
 
     # send a correlation matrix
-    elif action == 'cMatrix' and len(argument_list) == 3:
-        print('type=FILE')
-        print('{}'.format(correlationTable(argument_list[1],argument_list[2])))
-    
+    elif action == 'cMatrix':
+        if len(argument_list) == 3:
+            print('type=FILE')
+            print('{}'.format(correlationTable(argument_list[1],argument_list[2])))
+        elif len(argument_list) == 2:
+            print('type=FILE')
+            print('{}'.format(correlationTable(argument_list[1],100)))
+        else:
+            print('type=TEXT')
+            print('Bad parameters')
+
     # create a watchlist
     elif action == 'create' and len(argument_list) == 3:
         print('type=TEXT')

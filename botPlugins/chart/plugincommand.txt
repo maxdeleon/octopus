@@ -1,1 +1,1 @@
-!chart ticker,days,volume chart.py help.txt STRICT
+!chart ticker,days,volume chart.py help.txt CHILL

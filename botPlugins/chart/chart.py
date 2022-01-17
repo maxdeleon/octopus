@@ -52,12 +52,24 @@ if __name__ == '__main__':
     parameters = sys.argv
     parameters.pop(0)
     ticker = parameters[0]
-    volume = parameters[2]
-    if 'dateRange' in parameters[1]:
-        dates=parameters[1].split('|')
-        image_file = plot(ticker,dates,custom_range=True,volume=volume)
+
+    if len(parameters) == 2:
+        lookback_days = 100
+        volume = True
+
+    elif len(parameters) == 3:
+        lookback_days = int(parameters[1])
+        volume = bool(parameters[2])
     else:
-        image_file = plot(ticker,int(parameters[1]),custom_range=False,volume=volume)
+        lookback_days = 100
+        volume = True
+
+    '''if len(parameters) >= 2:
+        if 'dateRange' in parameters[1]:
+            dates=parameters[1].split('|')
+            image_file = plot(ticker,dates,custom_range=True,volume=volume)
+        else:'''
+    image_file = plot(ticker,lookback_days,custom_range=False,volume=volume)
 
     print('type=FILE')
     print(image_file)
