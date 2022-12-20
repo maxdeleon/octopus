@@ -12,7 +12,9 @@ from KEYS import *
 # discord token
 
 command_file = 'commands.txt'
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+client = discord.Client(intents=intents)
 update_guard = True
 
 @client.event
@@ -24,16 +26,19 @@ async def on_ready():
 @client.event
 async def on_message(message):
     global update_guard
+
+    print(message)
+
     if message.author == client.user:
         pass
-
-    if message.content.startswith('>'): # checks if the message starts with an app header
+    
+    if message.content.startswith('!'): # checks if the message starts with an app header
         command_dict = parseCommands()#parseCommands(commandFile=command_file)
         command_list = command_dict.keys()
-        content = message.content.strip('>')
+        content = message.content.strip('!')
         content = content.split(' ')
         print(message.author,content)
-
+        
         if content[0] == 'help':
             if len (content) == 2:
                 if content[1] in command_list:
