@@ -32,10 +32,10 @@ async def on_message(message):
     if message.author == client.user:
         pass
     
-    if message.content.startswith('!'): # checks if the message starts with an app header
+    if message.content.startswith('$'): # checks if the message starts with an app header
         command_dict = parseCommands()#parseCommands(commandFile=command_file)
         command_list = command_dict.keys()
-        content = message.content.strip('!')
+        content = message.content.strip('$')
         content = content.split(' ')
         print(message.author,content)
         
